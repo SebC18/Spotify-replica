@@ -10,7 +10,7 @@ export const SpotifyConfig = {
   clientId: '7f24ada9e3084e0bb7b09b4d0892e5e7',
   clientSecret: 'ab9af43a65114d0f87fb68154e78d633',
   authEndpoint: 'https://accounts.spotify.com/authorize',
-  redirectUrl: 'http://localhost:8888/callback/',
+  redirectUrl: 'http://localhost:4200/login/',
   scopes: [
     "user-read-currently-playing",
     "user-read-recently-played",

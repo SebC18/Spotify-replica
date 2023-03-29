@@ -21,4 +21,13 @@ export class SpotifyService {
     return authEndpoint + clientId + redirectUrl + scopes + responseType;
   }
 
+  retrieveTokenCallbackUrl() {
+    console.log(window.location.hash);
+    
+    if (!window.location.hash)
+      return '';
+
+    return '';  
+  }
+
 }
