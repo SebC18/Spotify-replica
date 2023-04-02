@@ -3,18 +3,50 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import Spotify  from 'spotify-web-api-js';
+import { IUser } from '../Interfaces/IUser';
+import { SpotifyUserHelper } from '../Common/spotifyHelper';
 @Injectable({
   providedIn: 'root'
 })
 export class SpotifyService {
 
   spotifyApi: Spotify.SpotifyWebApiJs = null;
-  
+  user: IUser;
 
   constructor(private http: HttpClient) {
     this.spotifyApi = new Spotify();
 
    }
+
+   async initializeUser() {
+    if (!!this.user)
+      return true;
+
+    const token = localStorage.getItem('token');
+
+    if (!token)
+      return false;
+
+    try {
+
+      this.defineAcessToken(token);
+      await this.retrieveSpotifyUser();
+      return !!this.user;
+
+    } catch (error) {
+      console.log(error, 'Could not retrieve Spotify User');
+      
+      return false;
+    }
+
+   }
+
+  async retrieveSpotifyUser() {
+    const userInfo = await this.spotifyApi.getMe();
+    this.user = SpotifyUserHelper(userInfo);
+    console.log(this.user);
+        
+  }
 
   retrieveLoginURL() {
     const authEndpoint = `${SpotifyConfig.authEndpoint}?`;

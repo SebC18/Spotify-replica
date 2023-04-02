@@ -1,3 +1,4 @@
+import { AuthentificationGuard } from './guards/authentification.guard';
 import { PlayerModule } from './components/player/player.module';
 import { PlayerComponent } from './components/player/player.component';
 import { LoginComponent } from './components/login/login.component';
@@ -18,6 +19,7 @@ const routes: Routes = [
   {
     path: 'player',
     loadChildren: () => import ('./components/player/player.module').then(x => x.PlayerModule),
+    canLoad: [AuthentificationGuard]
   },
 ];
 
