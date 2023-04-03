@@ -1,14 +1,14 @@
 import { AuthentificationGuard } from './guards/authentification.guard';
-import { PlayerModule } from './components/player/player.module';
-import { PlayerComponent } from './components/player/player.component';
-import { LoginComponent } from './components/login/login.component';
+import { PlayerModule } from './pages/player/player.module';
+import { PlayerComponent } from './pages/player/player.component';
+import { LoginComponent } from './pages/login/login.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'login',
+    redirectTo: 'player',
     pathMatch: 'full'
   },
   {
@@ -18,7 +18,7 @@ const routes: Routes = [
   },
   {
     path: 'player',
-    loadChildren: () => import ('./components/player/player.module').then(x => x.PlayerModule),
+    loadChildren: () => import ('./pages/player/player.module').then(x => x.PlayerModule),
     canLoad: [AuthentificationGuard]
   },
 ];

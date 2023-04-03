@@ -34,7 +34,7 @@ export class SpotifyService {
       return !!this.user;
 
     } catch (error) {
-      console.log(error, 'Could not retrieve Spotify User');
+      console.log('Could not retrieve Spotify User, check the details for more informations : ', error);
       
       return false;
     }
@@ -43,9 +43,7 @@ export class SpotifyService {
 
   async retrieveSpotifyUser() {
     const userInfo = await this.spotifyApi.getMe();
-    this.user = SpotifyUserHelper(userInfo);
-    console.log(this.user);
-        
+    this.user = SpotifyUserHelper(userInfo);        
   }
 
   retrieveLoginURL() {
@@ -67,7 +65,7 @@ export class SpotifyService {
     const params = window.location.hash.substring(1).split('&');
     console.log(params);
     
-    //     ici on prend le premier elmt de params et on retourne la deuxieme chaine split seulement
+    // ici on prend le premier elmt de params et on retourne la deuxieme chaine split seulement
     return params[0].split('=')[1];
  
   }

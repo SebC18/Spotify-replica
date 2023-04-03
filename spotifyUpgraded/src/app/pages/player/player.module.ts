@@ -1,3 +1,4 @@
+import { LeftPannelComponent } from './../../components/left-pannel/left-pannel.component';
 import { PlayerRoutes } from './player.routes';
 import { RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
@@ -6,7 +7,8 @@ import { PlayerComponent } from './player.component';
 
 @NgModule({
   declarations: [
-    PlayerComponent
+    PlayerComponent,
+    LeftPannelComponent
   ],
   imports: [
     CommonModule,

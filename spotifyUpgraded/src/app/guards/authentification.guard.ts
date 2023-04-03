@@ -18,8 +18,7 @@ export class AuthentificationGuard implements CanLoad {
     const token = localStorage.getItem('token');  
 
     if (!token) {
-      this.router.navigate(['/login']);
-      return false;
+      return this.notLoggedIn();
     }
     return new Promise((res) => {
       const userCreated = this.spotifyService.initializeUser();
