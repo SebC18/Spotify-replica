@@ -1,7 +1,8 @@
 @import '../../../assets/styles/variables.scss';
 
 $h-spotify-logo: 120px;
-
+$h-menu-otions: 150px;
+$m-menus-space: 10px;
 :host {
     max-width: 300px;
     min-height: 100vh;
@@ -23,5 +24,22 @@ $h-spotify-logo: 120px;
                 width: 70%;
             }
         }
+    }
+
+    .menu-container {
+        width: 100%;
+
+        &.options {
+            min-height: $h-menu-otions;
+            flex-direction: column;
+        }
+
+        * {
+            margin-bottom: $m-menus-space;
+        }
+    }
+
+    ic-icon {
+        font-size: 24px;
     }
 }

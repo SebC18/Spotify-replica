@@ -29,7 +29,7 @@ export class SpotifyService {
 
     try {
 
-      this.defineAcessToken(token);
+      this.defineAccessToken(token);
       await this.retrieveSpotifyUser();
       return !!this.user;
 
@@ -50,7 +50,7 @@ export class SpotifyService {
     const authEndpoint = `${SpotifyConfig.authEndpoint}?`;
     const clientId = `client_id=${SpotifyConfig.clientId}&`;
     const redirectUrl = `redirect_uri=${SpotifyConfig.redirectUrl}&`;
-    const scopes = `scopes=${SpotifyConfig.scopes.join('%20')}&`;
+    const scopes = `scope=${SpotifyConfig.scopes.join('%20')}&`;
     const responseType = `response_type=token&show_dialog=true`;
 
     return authEndpoint + clientId + redirectUrl + scopes + responseType;
@@ -70,8 +70,9 @@ export class SpotifyService {
  
   }
 
-  defineAcessToken(token : string) {
+  defineAccessToken(token : string) {
     this.spotifyApi.setAccessToken(token);
     localStorage.setItem('token', token);
+    //this.spotifyApi.skipToNext();
   }
 }

@@ -10,16 +10,16 @@ export const SpotifyConfig = {
   clientId: '7f24ada9e3084e0bb7b09b4d0892e5e7',
   authEndpoint: 'https://accounts.spotify.com/authorize',
   redirectUrl: 'http://localhost:4200/login/',
-  scopes: [
-    "user-read-currently-playing",
-    "user-read-recently-played",
-    "user-read-playback-state",
-    "user-top-read",
-    "user-modify-playback-state",
-    "user-library-read",
-    "playlist-read-private",
-    "playlist-read-collaborative",
-  ]
+    scopes: [
+      "user-read-currently-playing",
+      "user-read-recently-played",
+      "user-read-playback-state",
+      "user-top-read",
+      "user-modify-playback-state",
+      "user-library-read",
+      "playlist-read-private",
+      "playlist-read-collaborative",
+    ]
 }
 
 /*

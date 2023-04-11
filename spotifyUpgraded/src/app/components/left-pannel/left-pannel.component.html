@@ -2,6 +2,32 @@
     <div class="image-container flex flex-center">
         <img src="assets/images/logo-banner-green.png" alt="">
     </div>
+
+    <div class="menu-container flex options">
+        <app-btn-menu [description]="'Accueil'"  (click)="OnClickGoNext()">
+            <i-bs name="house-door-fill"
+            width="24"
+              height="24">
+</i-bs>        </app-btn-menu>
+
+        <app-btn-menu [description]="'Rechercher'">
+            <i-bs name="search" width="24" height="24"></i-bs>
+        </app-btn-menu>
+        
+        <app-btn-menu [description]="'Bibliothèque'">
+            <ic-icon [icon]=libraryIcon></ic-icon>
+        </app-btn-menu>
+
+        <app-btn-menu [description]="'Créer une playlist'">
+            <ic-icon [icon]=addIcon></ic-icon>
+        </app-btn-menu>
+
+        <app-btn-menu [description]="'Titres likés'">
+            <ic-icon [icon]=heartIcon></ic-icon>
+        </app-btn-menu>
+
+    </div>
+
 </div>
 <div class="user-info">
 
