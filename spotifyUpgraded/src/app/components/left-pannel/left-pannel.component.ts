@@ -1,3 +1,4 @@
+import { IPlaylist } from './../../Interfaces/IPlaylist';
 import { SpotifyService } from './../../services/spotify.service';
 import { Component, OnInit } from '@angular/core';
 import search from '@iconify/icons-mdi/search-expand';
@@ -15,6 +16,8 @@ export class LeftPannelComponent implements OnInit {
 
   selectedMenu = 'Accueil';
 
+  playlists: IPlaylist[]=[]
+
   homeIcon= roundHouse;
   searchIcon= search;
   libraryIcon= library;
@@ -25,10 +28,17 @@ export class LeftPannelComponent implements OnInit {
   constructor(private spotifyService: SpotifyService) { }
 
   ngOnInit(): void {
+    this.retrievePlaylists();
   }
 
-  btnClick(btn: string) {
-    this.selectedMenu = btn;
+
+  receiveBtnTitle($event: string){
+    this.selectedMenu = $event;
+    console.log('title received :', this.selectedMenu);
+  }
+
+  async retrievePlaylists() {
+    this.playlists = await this.spotifyService.retrieveUserPlaylists();
   }
 
 }

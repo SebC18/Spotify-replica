@@ -1,3 +1,4 @@
+import { IPlaylist } from './../Interfaces/IPlaylist';
 import { IUser } from './../Interfaces/IUser';
 export function SpotifyUserHelper(user: SpotifyApi.CurrentUsersProfileResponse): IUser{
     if (user.images.length != 0) {
@@ -14,4 +15,12 @@ export function SpotifyUserHelper(user: SpotifyApi.CurrentUsersProfileResponse):
         }  
     }
         
+}
+
+export function SpotifyPlaylistHelper(playlist: SpotifyApi.PlaylistObjectSimplified): IPlaylist {
+    return {
+        id: playlist.id,
+        name: playlist.name,
+        imageUrl: playlist.images.pop().url
+    };
 }

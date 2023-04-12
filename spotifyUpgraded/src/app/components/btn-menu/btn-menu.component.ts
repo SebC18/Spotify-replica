@@ -9,14 +9,14 @@ export class BtnMenuComponent implements OnInit {
 @Input() description: string;
 @Input() active = false;
 
-@Output() click = new EventEmitter<void>();
+@Output() click = new EventEmitter<string>();
   constructor() { }
 
   ngOnInit(): void {
   }
 
   onClick() {
-    this.click.emit();
+    this.click.emit(this.description);
   }
 
 

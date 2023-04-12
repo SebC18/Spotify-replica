@@ -6,36 +6,52 @@
     <div class="menu-container flex options">
         <app-btn-menu [description]="'Accueil'"  
                       [active]="selectedMenu === 'Accueil'"
-                      (click)="btnClick('Accueil')">
+                      (click)="receiveBtnTitle('Accueil')">
                       
             <i-bs name="house-door-fill" width="24" height="24"></i-bs>        
         </app-btn-menu>
 
         <app-btn-menu [description]="'Rechercher'" 
                       [active]="selectedMenu === 'Rechercher'"
-                      (click)="btnClick('Rechercher')">
+                      (click)="receiveBtnTitle('Rechercher')">
             <i-bs name="search" width="24" height="24"></i-bs>
         </app-btn-menu>
         
         <app-btn-menu [description]="'Bibliothèque'" 
                       [active]="selectedMenu === 'Bibliothèque'"
-                      (click)="btnClick('Bibliothèque')">
+                      (click)="receiveBtnTitle('Bibliothèque')">
             <ic-icon [icon]=libraryIcon></ic-icon>
         </app-btn-menu>
         <section>
             <app-btn-menu [description]="'Créer une playlist'" 
                         [active]="selectedMenu === 'Créer une playlist'"
-                        (click)="btnClick('Créer une playlist')">
+                        (click)="receiveBtnTitle('Créer une playlist')">
                 <ic-icon [icon]=addIcon></ic-icon>
             </app-btn-menu>
 
             <app-btn-menu [description]="'Titres likés'" 
                         [active]="selectedMenu === 'Titres likés'"
-                        (click)="btnClick('Titres likés')">
+                        (click)="receiveBtnTitle('Titres likés')">
                 <ic-icon [icon]=heartIcon></ic-icon>
             </app-btn-menu>
             <hr>
         </section>
+    </div>
+
+    <div class="menu-container flex">
+        <div>
+            <span class="playlist-title">
+                Playlists
+            </span>
+        </div>
+        <div class="playlist-scroll">
+            <app-btn-menu
+                    *ngFor="let playlist of playlists" 
+                    [description]="playlist.name"  
+                    [active]="selectedMenu === playlist.id"
+                    (click)="receiveBtnTitle(playlist.id)">  
+        </app-btn-menu>
+        </div>
     </div>
 
 </div>

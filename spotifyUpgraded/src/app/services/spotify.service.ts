@@ -4,7 +4,8 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import Spotify  from 'spotify-web-api-js';
 import { IUser } from '../Interfaces/IUser';
-import { SpotifyUserHelper } from '../Common/spotifyHelper';
+import { SpotifyPlaylistHelper, SpotifyUserHelper } from '../Common/spotifyHelper';
+import { IPlaylist } from '../Interfaces/IPlaylist';
 @Injectable({
   providedIn: 'root'
 })
@@ -74,5 +75,12 @@ export class SpotifyService {
     this.spotifyApi.setAccessToken(token);
     localStorage.setItem('token', token);
     //this.spotifyApi.skipToNext();
+  }
+
+  async retrieveUserPlaylists(offset = 0, limit = 50): Promise<IPlaylist[]> {
+    const playlists = await this.spotifyApi.getUserPlaylists(this.user.id, {offset, limit});
+    console.log(playlists);
+
+    return playlists.items.map(SpotifyPlaylistHelper);
   }
 }
