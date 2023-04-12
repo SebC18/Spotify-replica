@@ -12,6 +12,9 @@ import roundHouse from '@iconify/icons-mdi/house-variant'
   styleUrls: ['./left-pannel.component.scss']
 })
 export class LeftPannelComponent implements OnInit {
+
+  selectedMenu = 'Accueil';
+
   homeIcon= roundHouse;
   searchIcon= search;
   libraryIcon= library;
@@ -23,7 +26,9 @@ export class LeftPannelComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  async OnClickGoNext() {
-    await this.spotifyService.spotifyApi.skipToNext();
+
+  btnClick(btn: string) {
+    this.selectedMenu = btn;
   }
+
 }

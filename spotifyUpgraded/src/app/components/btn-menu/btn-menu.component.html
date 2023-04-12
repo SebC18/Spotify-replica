@@ -1,4 +1,5 @@
-<button type="button">
+<button type="button" (click)="onClick()"
+    [class.active]="active">
     <ng-content></ng-content>
     <span>{{description}}</span>
 </button>

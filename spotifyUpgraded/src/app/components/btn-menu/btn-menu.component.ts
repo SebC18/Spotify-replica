@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-btn-menu',
@@ -7,11 +7,17 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class BtnMenuComponent implements OnInit {
 @Input() description: string;
+@Input() active = false;
+
+@Output() click = new EventEmitter<void>();
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  onClick() {
+    this.click.emit();
+  }
 
 
 }
