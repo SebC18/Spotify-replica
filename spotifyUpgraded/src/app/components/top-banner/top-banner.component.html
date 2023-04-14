@@ -1,0 +1,18 @@
+<div class="container">
+    <button>
+        <ic-icon [icon]=arrowBackIcon></ic-icon>
+    </button>
+    <button class="reverse">
+        <ic-icon [icon]=arrowForwardIcon></ic-icon>
+    </button>
+    <button (click)="logOut()" class="right">
+        <ic-icon [icon]=logoutIcon></ic-icon>
+    </button>
+    <span class="profile right">
+        {{user.name}}
+    </span>
+    <div class="right">
+        <img class="image" [src]="user.imageUrl" alt="">
+    </div>
+   
+</div>

@@ -9,6 +9,10 @@ html, body {
     color: $col-text;
 }
 
+button {
+    cursor: pointer;
+}
+
 *{
     font-family: 'Montserrat', sans-serif;
     box-sizing: border-box;

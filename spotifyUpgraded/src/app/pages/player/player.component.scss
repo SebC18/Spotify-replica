@@ -1,3 +1,14 @@
 :host {
     display: flex;
 }
+
+
+.container-routes {
+    display: flex;
+    position: absolute;
+    top: 7vh;
+    left: 300px;
+    width: 84.2%;
+    height: 100vh;
+    background: red;
+}

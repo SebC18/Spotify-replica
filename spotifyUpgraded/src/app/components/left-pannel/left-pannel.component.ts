@@ -35,6 +35,7 @@ export class LeftPannelComponent implements OnInit {
   receiveBtnTitle($event: string){
     this.selectedMenu = $event;
     console.log('title received :', this.selectedMenu);
+    //this.spotifyService.spotifyApi.skipToNext();
   }
 
   async retrievePlaylists() {

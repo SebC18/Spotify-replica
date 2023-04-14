@@ -1,3 +1,5 @@
+import { PlayerbarComponent } from './../../components/playerbar/playerbar.component';
+import { TopBannerComponent } from './../../components/top-banner/top-banner.component';
 import { BtnMenuComponent } from './../../components/btn-menu/btn-menu.component';
 import { LeftPannelComponent } from './../../components/left-pannel/left-pannel.component';
 import { PlayerRoutes } from './player.routes';
@@ -16,7 +18,9 @@ const icons = {
   declarations: [
     PlayerComponent,
     LeftPannelComponent,
-    BtnMenuComponent
+    BtnMenuComponent,
+    TopBannerComponent,
+    PlayerbarComponent
   ],
   imports: [
     CommonModule,

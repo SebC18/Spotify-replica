@@ -10,7 +10,7 @@ export class BtnMenuComponent implements OnInit {
 @Input() active = false;
 
 @Output() click = new EventEmitter<string>();
-  constructor() { }
+  constructor() {}
 
   ngOnInit(): void {
   }

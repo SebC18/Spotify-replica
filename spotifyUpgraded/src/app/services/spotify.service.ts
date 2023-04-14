@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { SpotifyConfig } from './../../environments/environment';
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
@@ -14,7 +15,7 @@ export class SpotifyService {
   spotifyApi: Spotify.SpotifyWebApiJs = null;
   user: IUser;
 
-  constructor(private http: HttpClient) {
+  constructor(private router: Router) {
     this.spotifyApi = new Spotify();
 
    }
@@ -82,5 +83,10 @@ export class SpotifyService {
     console.log(playlists);
 
     return playlists.items.map(SpotifyPlaylistHelper);
+  }
+
+  logout() {
+    localStorage.clear();
+    this.router.navigate(['/login']);
   }
 }

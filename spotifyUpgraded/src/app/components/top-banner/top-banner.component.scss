@@ -1,0 +1,55 @@
+@import '../../../assets/styles/variables.scss';
+
+:host {
+
+
+
+    .container {
+        z-index: 2;
+        position: fixed;
+        padding: 10px 30px;
+        top: 0;
+        left: 300px;
+        min-width: 83vw;
+    }
+
+    display:flex;
+    width: 87%;
+    min-width: 300px;
+    
+    .right {
+        float: right;
+    }
+    .profile{
+        margin-top: 15px;
+    }
+
+    button {
+        cursor: pointer;
+        background: none;
+        border: none;
+        font-size: 36px;
+        color: $col-inactive;
+        align-self: center;
+        margin-top: 7px;
+        &:hover {
+            color: white;
+        }
+    }
+
+    span {
+        display: inline;
+    }
+
+    .image {
+        margin-top: 2px;
+        margin-right: 10px;
+        height: 50px;
+        width: 50px;
+        border-radius: 50%;
+    }
+
+    .reverse {
+        rotate: 180;
+    }
+}
